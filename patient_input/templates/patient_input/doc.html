@@ -1,12 +1,11 @@
 <! DOCTYPE hTML>
 <html>
-<head>
+    <head>
         <title>Hospital Management</title>
         <h1 style="color:blue;font-family:verdana;text-align:center" > Welcome to Hospital Management Application</h1>
         <h2 style ="color:blue;font-family:verdana;text-align:center">Medical Services You Can Trust</h2>
     </head>
-
-<style>
+    <style>
       img {
       display: block;
       margin-left: auto;
@@ -23,24 +22,23 @@
       }
 
       form {
-      width: 50%;
+      width: 70%;
       margin-left: auto;
       margin-right: auto;
       }
-
-
       table {
       background-color: red;
       margin: 0 auto;
       }
-  </style>
+    </style>
+
       {% load widget_tweaks %}
       {% load staticfiles %}
 <body>
   <img src="{%static  'hospital\images\hospital.png'%}" alt="Hospital"  class="center"/>  <br/>
 
 
-      <br/>
+        <br/>
     <table>
     <tr>
       <td><a href ="{% url 'logout' %}">LOG OUT</a> </td>
@@ -55,7 +53,7 @@
   </br>
 
     <link rel="stylesheet" href="{% static 'hospital/css/bootstrap.min.css' %}" type = "text/css"/>
-<form method="post", width="70%">
+<form method="post">
     {% csrf_token %}
 
     {% for hidden in form.hidden_fields %}
@@ -73,10 +71,10 @@
     {% endfor %}
 
     <div class="form-group">
-      <button type="submit" class="btn btn-success">
+      <button type="submit" class="btn btn-success" >
         <span class="glyphicon glyphicon-ok"></span> Save
       </button>
-      <a href="/home" class="btn btn-default">Cancel</a>
+      <a href="" class="btn btn-default">Cancel</a>
     </div>
   </form>
 </body>

@@ -1,40 +1,94 @@
-<!DOCTYPE HTML>
+<! DOCTYPE hTML>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hospital</title>
-  </head>
+<head>
+        <title>Hospital Management</title>
+        <h1 style="color:blue;font-family:verdana;text-align:center" > Welcome to Hospital Management Application</h1>
+        <h2 style ="color:blue;font-family:verdana;text-align:center">Medical Services You Can Trust</h2>
+    </head>
+<style>
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      }
+      
+      a:link, a:visited {
+      background-color: #f44336;
+      color: white;
+      padding: 14px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      }
 
+      table {
+      background-color: red;
+      margin: 0 auto;
+      }
+
+      form {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      }
+</style>
 <body>
-<table class="table table-striped">
-  <thead>
+      {% load widget_tweaks %}
+      {% load staticfiles %}
+      <img src="{%static  'hospital\images\hospital.png'%}" alt="Hospital"  class="center"/>  <br/>
+
+      <br/>
+    <table>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <td><a href ="{% url 'logout' %}">LOG OUT</a> </td>
+    <td><a href ="/patientsview" >VIEW PATIENTS</a> </td>
+    <td><a href ="/patientinput">ADD PATIENT</a></td>
+    <td><a href ="/doctorinfo">ADD DOCTOR</a></td>
+    <td><a href ="/doctorview">VIEW DOCTORS</a></td>
+    <td><a href ="/doctor">DOCTOR'S PRESCRIPTION</a></td>
+    <td><a href ="/patient">VIEW PRESCRIPTIONS<a></td>
     </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
+    </table>
+  </br>
+    <link rel="stylesheet" href="{% static 'hospital/css/bootstrap.min.css' %}" type = "text/css"/>
+     <div class="dropdown">
+    {% for patient in patient %}
+    {% with patient=Prescription.patient %}
+  <button class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Patient ID
+  </button>
+
+  
+  {% endwith %}
+  {% endfor %}
+  
+</div>
+<form method="post">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+      {{ hidden }}
+    {% endfor %}
+    
+
+
+    {% for field in form.visible_fields %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field|add_class:'form-control' }}
+        {% for error in field.errors %}
+          <span class="help-block">{{ error }}</span>
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-success">
+        <span class="glyphicon glyphicon-ok"></span> Save
+      </button>
+      <a href="" class="btn btn-default">Cancel</a>
+    </div>
+  </form>
 </body>
-</table>
 </html>
+
+    

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hospital</title>
+  </head>
+<style>
+  img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      size: 40px;
+      }
+      
+      a:link, a:visited {
+      background-color: #f44336;
+      color: white;
+      padding: 14px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      }
+
+      table {
+      background-color: red;
+      margin: 0 auto;
+      }
+</style>
+<body>
+  {% load staticfiles %}
+   <img src="{%static  'hospital\images\hospital.png'%}" alt="Hospital"  class="center"/>  <br/>
+      <br/>
+   <table>
+    <tr>
+      <td><a href ="{% url 'logout' %}">LOG OUT</a> </td>
+    	 <td><a href ="/patientsview" >VIEW PATIENTS</a> </td>
+    <td><a href ="/patientinput">ADD PATIENT</a></td>
+    <td><a href ="/doctorinfo">ADD DOCTOR</a></td>
+    <td><a href ="/doctorview">VIEW DOCTORS</a></td>
+    <td><a href ="/doctor">DOCTOR'S PRESCRIPTION</a></td>
+    <td><a href ="/patient">VIEW PRESCRIPTIONS<a></td>
+    </tr>
+    </table>
+  </br>
+  <link rel="stylesheet" href="{% static 'hospital/css/bootstrap.min.css' %}" type = "text/css"/>
+<table class="table table-striped table-cream">
+	<div class='prescription'>
+		<thead>
+			 <tr>
+              <th scope="col">Hospital Number</th>
+              <th scope="col">Patient Name</th>
+              <th scope="col">Patient Complaint</th>
+              <th scope="col">Prescription</th>
+              <th scope="col">Remark</th>
+              <th scope="col">Date, Time</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        	{% for patient in patient %}
+        	<tr>
+        		<td>{{ patient.Reg_No }}</td>
+        		<td>{{ patient.first_name}} {{ patient.Last_name }}</td>
+        	{% for prescription in patient.prescription_set.all %}
+        		<td>{{ prescription.Complaint }}</td>
+        		<td>{{ prescription.Prescription }}</td>
+        		<td>{{ prescription.Remarks }}</td>
+        		<td>{{ prescription.Date }}</td>
+        	{% endfor %}
+			{% endfor %}
+		</tbody>
+</body>
+</html>
+

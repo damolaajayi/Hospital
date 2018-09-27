@@ -1,20 +1,46 @@
 from django.db import models
+import datetime
+
+
+
+
 
 class patient(models.Model):
-	Reg_No     = models.CharField(max_length=20)
-	first_name = models.CharField(max_length=25)
-	Last_name  = models.CharField(max_length=25)
-	Email      = models.EmailField(max_length=50)
-	Patient_Age = models.CharField(max_length=10)
-	Gender = models.CharField(max_length=10)
+	SEX = (
+		('M', 'Male'),
+		('F', 'Female'),
+		)
+	
+	Reg_No          = models.SmallIntegerField(primary_key=True)
+	first_name      = models.CharField(max_length=25)
+	Last_name       = models.CharField(max_length=25)
+	Email           = models.EmailField(max_length=50)
+	Patient_Age     = models.CharField(max_length=10)
+	Gender          = models.CharField(max_length=1, choices=SEX)
 	Patient_Address = models.TextField(max_length=200)
-	Contact = models.CharField(max_length=50)
-	Room = models.CharField(max_length=10)
-	date = models.DateTimeField(auto_now_add=False)
+	Contact_No      = models.SmallIntegerField()
+	Room_No         = models.SmallIntegerField()
+	time 			= models.DateTimeField(auto_now=True)
+
+	def __str__(self):
+		return "%s %s" % (self.first_name, self.Last_name)
 
 
-def __str__(self):
-	return ' '.join([
-		self.first_name,
-		self.Last_name,
-		])
+
+
+
+	
+
+class Prescription(models.Model):
+	patient         = models.ForeignKey(patient, on_delete=models.CASCADE)
+	Complaint       = models.TextField(max_length=300)
+	Prescription    = models.TextField(max_length=200)
+	Remarks         = models.TextField(max_length=200)
+	Date            = models.DateTimeField('Date prescribed')
+
+	def __str__(self):
+		return self.Prescription
+
+	class Meta:
+		ordering = ('patient',)
+
