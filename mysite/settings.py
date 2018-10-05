@@ -139,9 +139,9 @@ PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
+STATICFILES_DIRS = (
         os.path.join(PROJECT_ROOT, 'static'),
-        ]
+        )
 #STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
