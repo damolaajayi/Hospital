@@ -35,7 +35,7 @@
 <body>
       {% load widget_tweaks %}
       {% load staticfiles %}
-      <img src="{%static  'hospital\images\hospital.png'%}" alt="Hospital"  class="center"/>  <br/>
+      <img src="{% static  'hospital\images\hospital.png' %}" alt="Hospital"  class="center"/>  <br/>
 
       <br/>
     <table>
@@ -50,7 +50,7 @@
     </tr>
     </table>
   </br>
-    <link rel="stylesheet" href="{% static 'hospital/css/bootstrap.css' %}" type = "text/css"/>
+    <link rel="stylesheet" href="{% static 'hospital/css/bootstrap.min.css' %}" type = "text/css"/>
      <div class="dropdown">
     {% for patient in patient %}
     {% with patient=Prescription.patient %}

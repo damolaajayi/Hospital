@@ -29,7 +29,7 @@
     </style>
 <body>
   {% load staticfiles %}
-   <img src="{%static  'hospital\images\hospital.png'%}" alt="Hospital"  class="center"/>  <br/>
+   <img src="{% static 'hospital\images\hospital.png' %}" alt="Hospital"  class="center"/>  <br/>
 
    <br/>
     <table>
@@ -46,7 +46,7 @@
 </br>
 
 
-  <link rel="stylesheet" href="{% static 'hospital/css/bootstrap.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'hospital/css/bootstrap.min.css' %}" type = "text/css"/>
     <form class="form-inline my-2 my-lg-0">
         <input 
             class="form-control mr-sm-2" 
