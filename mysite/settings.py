@@ -23,7 +23,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'damola')
 EMAIL_HOST_PASSWORD = os.environ.get('davidbeckham')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['damola2018.herokuapp.com', '127.0.0.1']
 
@@ -135,12 +135,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-        os.path.join(STATIC_ROOT, 'static'),
-        )
+STATIC_FILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, 'static'),]
 #STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
@@ -150,4 +153,3 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
