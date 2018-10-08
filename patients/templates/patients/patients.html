@@ -26,6 +26,10 @@
       margin: auto;
       width: 70%;
       }
+
+      table-striped {
+        width: 70% ;
+      }
 </style>
 <body>
   {% load staticfiles %}
@@ -55,11 +59,12 @@
             value="{{request.GET.q}}">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </br>
+    </br>
     </form>
 <table class="table table-striped table-cream">
   <div class="patient">
         <div class="patient">
-          <thead>
+          <thead class>
             <tr>
               <th scope="col">Hospital Number</th>
               <th scope="col">First Name</th>

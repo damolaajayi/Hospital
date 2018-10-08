@@ -1,0 +1,49 @@
+<! DOCTYPE hTML>
+<html>
+    <head>
+        <title>Hospital Management</title>
+        <h1 style="color:blue;font-family:verdana;text-align:center" > Welcome to Hospital Management Application</h1>
+        <h2 style ="color:blue;font-family:verdana;text-align:center">Medical Services You Can Trust</h2>
+    </head>
+     <style>
+			
+			img {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			}
+
+			a:link, a:visited {
+			background-color: #f44336;
+			color: white;
+			padding: 13px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			}
+
+			table {
+			background-color: red;
+			margin: 0 auto;
+			}
+
+			form { 
+			margin: 0 auto;
+			width:250px;
+			}
+			
+	</style>
+	{% load staticfiles %}
+		<link rel="stylesheet" href="{% static 'hospital/css/bootstrap.min.css' %}" type = "text/css"/>
+	<body class="body" style="background-color:#f6f6f6">
+        <img src="{%static	'hospital\images\hospital.png'%}"	alt="Hospital"	class="center"/>	<br/>
+   
+        <br/>
+</br>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
+</html>
+style="text-align:center" 

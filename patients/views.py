@@ -12,7 +12,6 @@ from django.contrib.auth.decorators import login_required
 def patient_list(request):
 	queryset = patient.objects.order_by('-Reg_No')
 	query = patient.objects.all()
-	
 	qs = request.GET.get("q")
 	if qs:
 		query = query.filter(
@@ -20,11 +19,6 @@ def patient_list(request):
 			Q(Last_name__icontains=qs)|
 			Q(Reg_No__icontains=qs)
 			).distinct()
-
-	#search_term = ''
-	#if 'search' in request.GET:
-	#	search_term = request.GET['search']
-	#	query = query.filter(patient__icontains=search_term) | filter(first_name__icontains=search_term)
 	context = {
 		"patient": queryset,
 		"patient": query
@@ -49,10 +43,13 @@ def doct(request):
 @login_required(login_url="/users/login")
 def docview(request):
 	query = DoctorInfo.objects.all()
-	search_term = ''
-	if 'search' in request.GET:
-		search_term = request.GET['search']
-		query = query.filter(ID__icontains=search_term, Name__exact=search_term)
+	qs = request.GET.get("q")
+	if qs:
+		query = query.filter(
+			Q(Name__icontains=qs)|
+			Q(ID__icontains=qs)|
+			Q(Age__icontains=qs)
+			).distinct()
 
 	context = {
 		"doctor": query
