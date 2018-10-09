@@ -9,6 +9,7 @@
       display: block;
       margin-left: auto;
       margin-right: auto;
+      size: 40px;
       }
       
       a:link, a:visited {
@@ -23,7 +24,11 @@
       table {
       background-color: red;
       margin: 0 auto;
-      display: grid;
+      width: 70%;
+      }
+
+      table-striped {
+        width: 70% ;
       }
       
     </style>
@@ -34,7 +39,7 @@
    <br/>
     <table>
     <tr>
-      <td><a href ="{% url 'logout' %}">LOG OUT</a> </td>
+      <td><a href ="{% url 'users:logout' %}">LOG OUT</a> </td>
     <td><a href ="/patientsview" >VIEW PATIENTS</a> </td>
     <td><a href ="/patientinput">ADD PATIENT</a></td>
     <td><a href ="/doctorinfo">ADD DOCTOR</a></td>
