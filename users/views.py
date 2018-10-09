@@ -6,6 +6,6 @@ from .forms import DoctorSignUpForm
 
 class SignUp(generic.CreateView):
 	form_class = DoctorSignUpForm
-	success_url = reverse_lazy('login')
+	success_url = reverse_lazy('users:login')
 	template_name = 'signup.html' 
 	
