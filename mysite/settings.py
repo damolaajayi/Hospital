@@ -33,9 +33,9 @@ ALLOWED_HOSTS = ['damola2018.herokuapp.com', '127.0.0.1']
 
 INSTALLED_APPS = [
     'hospital',
-    'users',
-    'patients',
     'patient_input',
+    'patients',
+    'users',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,7 +51,7 @@ LOGOUT_REDIRECT_URL = 'home'
 
 AUTH_USER_MODEL = 'users.DoctorUser'
 
-SITE_ID = 1
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/dev/ref/settings/#databases
+SITE_ID=1
 
 DATABASES = {
     'default': {
