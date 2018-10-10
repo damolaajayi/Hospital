@@ -90,7 +90,7 @@ SITE_ID=1
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresq1_psycopg2',
         'NAME': 'hospital_app',
         'USER': 'damola',
         'PASSWORD': 'damola',
