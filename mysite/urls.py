@@ -25,5 +25,5 @@ urlpatterns = [
     path('', include('patients.urls')),
     path('', include('hospital.urls')),
     path('', include('patient_input.urls')),
-    path('users/', include('users.urls')),
+    path('users/', include('hospital.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

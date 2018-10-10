@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'hospital',
     'patient_input',
     'patients',
-    'users',
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.contenttypes',
@@ -47,10 +46,10 @@ INSTALLED_APPS = [
     'widget_tweaks',
 ]
 
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'hospital:home'
+LOGOUT_REDIRECT_URL = 'hospital:home'
 
-AUTH_USER_MODEL = 'users.DoctorUser'
+AUTH_USER_MODEL = 'hospital.DoctorUser'
 
 
 

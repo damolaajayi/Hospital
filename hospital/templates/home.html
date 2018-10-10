@@ -47,7 +47,7 @@
         <p style="font-size:30px; color:red;">Hi Dr. {{ user.username }}</p>
 		<table>
 		<tr>
-		<td><a href ="{% url 'users:logout' %}">LOG OUT</a> </td>
+		<td><a href ="{% url 'hospital:logout' %}">LOG OUT</a> </td>
 		<td><a href ="/patientsview" >VIEW PATIENTS</a> </td>
     	<td><a href ="/patientinput">ADD PATIENT</a></td>
     	<td><a href ="/doctorinfo">ADD DOCTOR</a></td>
@@ -59,8 +59,8 @@
 		{% else %}
 		<table>
 		<tr>
-		<td><a href ="{% url 'users:login' %}">LOG IN</a></td>
-		<td><a href ="{% url 'users:signup' %}">SIGN UP</td>
+		<td><a href ="{% url 'hospital:login' %}">LOG IN</a></td>
+		<td><a href ="{% url 'hospital:signup' %}">SIGN UP</td>
 		</tr>
 		</table>
 		{% endif %}
