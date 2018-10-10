@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR =  os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -90,7 +91,7 @@ SITE_ID=1
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresq1_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', #one of those should work   #one of those should work
         'NAME': 'hospital_app',
         'USER': 'damola',
         'PASSWORD': 'damola',
@@ -149,8 +150,12 @@ STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, 'staticfiles'),]
 
 LOGIN_REDIRECT_URL = '/'
 
-import dj_database_url
+
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 
+try:
+    from .local_settings import *
+except ImportError:
+    pass
