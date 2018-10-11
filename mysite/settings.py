@@ -24,7 +24,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'damola')
 EMAIL_HOST_PASSWORD = os.environ.get('davidbeckham')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['damola2018.herokuapp.com', '127.0.0.1']
