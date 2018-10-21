@@ -23,7 +23,7 @@ def doc(request):
 		form = DoctorInformation(request.POST)
 		if form.is_valid():
 			print(form.cleaned_data)
-			DoctorInfo.objects.create(**form.cleaned_data)
+			DoctorInfo.objects.create()
 	else:
 		form = DoctorInformation()
 	return render(request, 'patient_input/doc.html', {'form': form})
