@@ -6,8 +6,7 @@ class DoctorInfo(models.Model):
 		('M', 'Male'),
 		('F', 'Female'),
 		)
-	Name       = models.CharField(max_length=100)
-	ID         = models.IntegerField(primary_key=True)
+	Name       = models.CharField(max_length=100, primary_key=True)
 	Age        = models.CharField(max_length=50)
 	Contact_No = models.BigIntegerField()
 	Gender     = models.CharField(max_length=6, choices=SEX)

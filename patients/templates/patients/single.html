@@ -61,11 +61,11 @@
         	<tr>
         		<td>{{ patient.Reg_No }}</td>
         		<td>{{ patient.first_name}} {{ patient.Last_name }}</td>
-        	{% for prescription in patient.prescription_set.all %}
-        		<td>{{ prescription.Complaint }}</td>
-        		<td>{{ prescription.Prescription }}</td>
-        		<td>{{ prescription.Remarks }}</td>
-        		<td>{{ prescription.Date }}</td>
+        	{% for prescrip in patient.Prescription_set.all %}
+        		<td>{{ Prescription.Complaint }}</td>
+        		<td>{{ Prescription.Prescription }}</td>
+        		<td>{{ Prescription.Remarks }}</td>
+        		<td>{{ Prescription.Date }}</td>
         	{% endfor %}
 			{% endfor %}
 		</tbody>

@@ -30,10 +30,10 @@ def doct(request):
 	if request.method == 'POST':
 		form = DoctorForm(request.POST)
 		if form.is_valid():
-			print()
-			Prescription.objects.create()
-	else:
-		form = DoctorForm()
+			print(form.cleaned_data)
+			Prescription.objects.create(**form.cleaned_data)
+		else:
+			form = DoctorForm()
 	context = {
 			'form': form
 	}
@@ -71,8 +71,10 @@ def prescrip(request):
 @login_required(login_url="/users/login")
 def singlepatient(request):
 	q = patient.objects.all()
+	query = Prescription.objects.all()
 	context = {
-	"patient" : q
+	"patient" : q,
+	"prescrip": query
 	}
 	return render(request, 'patients/single.html', context)
 
