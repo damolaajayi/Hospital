@@ -9,7 +9,7 @@ class DoctorInfo(models.Model):
 	Name       = models.CharField(max_length=100)
 	ID         = models.IntegerField(primary_key=True)
 	Age        = models.CharField(max_length=50)
-	Contact_No = models.IntegerField()
+	Contact_No = models.BigIntegerField()
 	Gender     = models.CharField(max_length=6, choices=SEX)
 	Department = models.CharField(max_length=100)
 

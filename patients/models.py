@@ -18,7 +18,7 @@ class patient(models.Model):
 	Patient_Age     = models.CharField(max_length=10)
 	Gender          = models.CharField(max_length=6, choices=SEX)
 	Patient_Address = models.TextField(max_length=200)
-	Contact_No      = models.IntegerField()
+	Contact_No      = models.BigIntegerField()
 	Room_No         = models.IntegerField()
 	time 			= models.DateTimeField(auto_now=True)
 
