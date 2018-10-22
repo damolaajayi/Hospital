@@ -30,8 +30,8 @@ def doct(request):
 	if request.method == 'POST':
 		form = DoctorForm(request.POST)
 		if form.is_valid():
-			print(form.cleaned_data)
-			Prescription.objects.create(**form.cleaned_data)
+			print()
+			Prescription.objects.create()
 	else:
 		form = DoctorForm()
 	context = {

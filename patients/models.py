@@ -16,7 +16,7 @@ class patient(models.Model):
 	Last_name       = models.CharField(max_length=25)
 	Email           = models.EmailField(max_length=50)
 	Patient_Age     = models.CharField(max_length=10)
-	Gender          = models.CharField(max_length=1, choices=SEX)
+	Gender          = models.CharField(max_length=6, choices=SEX)
 	Patient_Address = models.TextField(max_length=200)
 	Contact_No      = models.SmallIntegerField()
 	Room_No         = models.SmallIntegerField()

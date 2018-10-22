@@ -10,7 +10,8 @@ class DoctorInfo(models.Model):
 	ID         = models.IntegerField(primary_key=True)
 	Age        = models.CharField(max_length=50)
 	Contact_No = models.IntegerField()
-	Room       = models.IntegerField()
-	Gender     = models.CharField(max_length=1, choices=SEX)
+	Gender     = models.CharField(max_length=6, choices=SEX)
 	Department = models.CharField(max_length=100)
 
+	def __str__(self):
+		return self.Name
