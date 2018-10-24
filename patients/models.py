@@ -3,8 +3,6 @@ import datetime
 
 
 
-
-
 class patient(models.Model):
 	SEX = (
 		('M', 'Male'),
@@ -17,9 +15,8 @@ class patient(models.Model):
 	Email           = models.EmailField(max_length=50)
 	Patient_Age     = models.CharField(max_length=10)
 	Gender          = models.CharField(max_length=6, choices=SEX)
-	Patient_Address = models.TextField(max_length=200)
 	Contact_No      = models.BigIntegerField()
-	Room_No         = models.IntegerField()
+	Patient_Address = models.TextField(max_length=100)
 	time 			= models.DateTimeField(auto_now=True)
 
 	def __str__(self):
@@ -35,8 +32,8 @@ class Prescription(models.Model):
 	patient         = models.ForeignKey(patient, on_delete=models.CASCADE)
 	Complaint       = models.TextField(max_length=300)
 	Prescription    = models.TextField(max_length=200)
-	Remarks         = models.TextField(max_length=200)
-	Date            = models.DateTimeField('Date prescribed')
+	Remarks         = models.TextField(max_length=100)
+	Date            = models.DateTimeField('Date prescribed', auto_now=False, auto_now_add=True)
 
 	def __str__(self):
 		return self.Prescription

@@ -27,13 +27,9 @@ def patient_list(request):
 
 @login_required(login_url="/users/login")
 def doct(request):
-	if request.method == 'POST':
-		form = DoctorForm(request.POST)
-		if form.is_valid():
-			print(form.cleaned_data)
-			Prescription.objects.create(**form.cleaned_data)
-		else:
-			form = DoctorForm()
+	form = DoctorForm(request.POST or None)
+	if form.is_valid():
+		instance = form.save(commit=True)
 	context = {
 			'form': form
 	}
