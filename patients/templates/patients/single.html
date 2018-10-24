@@ -38,7 +38,7 @@
     <td><a href ="/doctorinfo">ADD DOCTOR</a></td>
     <td><a href ="/doctorview">VIEW DOCTORS</a></td>
     <td><a href ="/doctor">DOCTOR'S PRESCRIPTION</a></td>
-    <td><a href ="/patient">VIEW PRESCRIPTIONS<a></td>
+    <td><a href ="/prescription">VIEW PRESCRIPTIONS<a></td>
     </tr>
     </table>
   </br>
@@ -61,7 +61,7 @@
         	<tr>
         		<td>{{ patient.Reg_No }}</td>
         		<td>{{ patient.first_name}} {{ patient.Last_name }}</td>
-        	{% for prescrip in patient.Prescription_set.all %}
+        	{% for Prescription in patient.Prescription_set.all %}
         		<td>{{ Prescription.Complaint }}</td>
         		<td>{{ Prescription.Prescription }}</td>
         		<td>{{ Prescription.Remarks }}</td>

@@ -70,7 +70,7 @@ def singlepatient(request):
 	query = Prescription.objects.all()
 	context = {
 	"patient" : q,
-	"prescrip": query
+	"Prescription": query
 	}
 	return render(request, 'patients/single.html', context)
 
