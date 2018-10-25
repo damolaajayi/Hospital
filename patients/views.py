@@ -56,16 +56,18 @@ def docview(request):
 @login_required(login_url="/users/login")
 def prescrip(request):
 	qs = Prescription.objects.all()
-	q = patient.objects.all()
-	queryset = request.GET.get("s")
-	if qs:
-		q = q.filter(
-			Q(Reg_No__icontains=q)
-			)
-	
+	query = patient.objects.all()
+	qr = request.GET.get("q")
+	if qr:
+		query = query.filter(
+			Q(Reg_No__icontains=qr)|
+			Q(first_name__icontains=qr)|
+			Q(Last_name__icontains=qr)
+			).distinct()
+
 	context = {
-	"qs": qs,
-	'q': q
+		"qs": qs,
+		'q': query
 	}
 	return render(request, 'patients/prescription.html', context)
 
